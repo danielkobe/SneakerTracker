@@ -243,7 +243,7 @@ namespace SneakerTracker
                             row.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn3"].Index].Value = (int)sizes[i - 1]["flightClub"]["selling"]["lowestAsk"];
                             if (this.resellCheckBox.Checked == true)
                             {
-                                var Base = (int)row.Cells[dataGridView1.Columns["dataGridViewTextBoxColum3"].Index].Value;
+                                var Base = (int)row.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn3"].Index].Value;
                                 Base = (int)(Base * .8);
                                 row.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn3"].Index].Value = Base;
                             }
@@ -259,7 +259,7 @@ namespace SneakerTracker
                             row.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn4"].Index].Value = (int) sizes[i - 1]["stadiumGoods"]["lowestAsk"];
                             if (this.resellCheckBox.Checked == true)
                             {
-                                var Base = (int)row.Cells[dataGridView1.Columns["dataGridViewTextBoxColum4"].Index].Value;
+                                var Base = (int)row.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn4"].Index].Value;
                                 Base = (int)(Base * .8);
                                 row.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn4"].Index].Value = Base;
                             }
@@ -292,12 +292,12 @@ namespace SneakerTracker
                     Base = (int)(Base * .88);
                     r.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn2"].Index].Value = Base;
 
-                    Base = (int)r.Cells[dataGridView1.Columns["dataGridViewTextBoxColum3"].Index].Value;
+                    Base = (int)r.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn3"].Index].Value;
                     Base = (int)(Base * .8);
                     r.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn3"].Index].Value = Base;
 
 
-                    Base = (int)r.Cells[dataGridView1.Columns["dataGridViewTextBoxColum4"].Index].Value;
+                    Base = (int)r.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn4"].Index].Value;
                     Base = (int)(Base * .8);
                     r.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn4"].Index].Value = Base;
                 }
