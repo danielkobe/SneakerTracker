@@ -40,6 +40,12 @@ namespace SneakerTracker
             InitializeComponent();
             ImageList.ImageSize = new Size(140, 100);
 
+            foreach (DataGridViewColumn column in dataGridView1.Columns)
+            {
+
+                column.SortMode = DataGridViewColumnSortMode.Automatic;
+            }
+
 
         }
         async void Search(string query)
@@ -176,20 +182,71 @@ namespace SneakerTracker
             if (listView1.SelectedItems.Count >= 1)
             {
                 ListViewItem SelectedItem = this.listView1.SelectedItems[0];
-                if (SKUs[SelectedItem.Index] != "TBA")
+
+                using (HttpClient client = new HttpClient())
                 {
-                    using (HttpClient client = new HttpClient())
+                    client.DefaultRequestHeaders.Accept.Add(
+                        new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+
+
+                    var response = client.GetAsync("https://dtzwqfkqs0.execute-api.us-east-1.amazonaws.com/prod/scrapePrices?productId=" + SKUs[SelectedItem.Index]).Result;
+
+                    string content = response.Content.ReadAsStringAsync().Result;
+                    var prices = JsonObject.Parse(content);
+                    var sizes = prices["sizes"];
+
+                    dataGridView1.Rows.Clear();
+                    dataGridView1.Rows.Add(sizes.Count);
+
+                    for (int i = 1; i <= sizes.Count; i++)
                     {
-                        client.DefaultRequestHeaders.Accept.Add(
-                            new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+                        dataGridView1.Rows[i - 1].HeaderCell.Value = sizes[i-1]["size"].ToString();
+                        var row = this.dataGridView1.Rows[i-1];
+
+                        //goat
+                        if (sizes[i - 1]["goat"].Count>0)
+                        {
+                            row.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn1"].Index].Value = (int) sizes[i - 1]["goat"]["lowestAsk"];
+                        }
+                        else
+                        {
+                            row.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn1"].Index].Value = 0;
+                        }
+
+                        //stockx
+                        if (sizes[i - 1]["stockX"].Count > 0)
+                        {
+                            row.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn2"].Index].Value = (int) sizes[i - 1]["stockX"]["lowestAsk"];
+                        }
+                        else
+                        {
+                            row.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn2"].Index].Value = 0;
+                        }
+
+                        //flight club
+                        if (sizes[i - 1]["flightClub"]["selling"].Count > 0)
+                        {
+                            row.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn3"].Index].Value = (int)sizes[i - 1]["flightClub"]["selling"]["lowestAsk"];
+                        }
+                        else
+                        {
+                            row.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn3"].Index].Value = 0;
+                        }
+
+                        //stadium goods
+                        if (sizes[i - 1]["stadiumGoods"].Count > 0)
+                        {
+                            row.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn4"].Index].Value = (int) sizes[i - 1]["stadiumGoods"]["lowestAsk"];
+                        }
+                        else
+                        {
+                            row.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn4"].Index].Value = 0;
+                        }
 
 
-                        var response = client.GetAsync("https://dtzwqfkqs0.execute-api.us-east-1.amazonaws.com/prod/scrapePrices?productId=" + SKUs[SelectedItem.Index]).Result;
-
-                        string content = response.Content.ReadAsStringAsync().Result;
-                        textBox2.Text = content;
                     }
                 }
+
             }
 
         }
