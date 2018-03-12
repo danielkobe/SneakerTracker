@@ -36,6 +36,7 @@
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.resellCheckBox = new System.Windows.Forms.CheckBox();
             this.SKU.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -70,6 +71,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -82,8 +84,6 @@
             this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridView1.Size = new System.Drawing.Size(462, 446);
             this.dataGridView1.TabIndex = 11;
-            this.dataGridView1.AllowUserToAddRows = false;
-
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -105,11 +105,23 @@
             this.dataGridViewTextBoxColumn4.HeaderText = "Stadium";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
+            // resellCheckBox
+            // 
+            this.resellCheckBox.AutoSize = true;
+            this.resellCheckBox.Location = new System.Drawing.Point(186, 33);
+            this.resellCheckBox.Name = "resellCheckBox";
+            this.resellCheckBox.Size = new System.Drawing.Size(74, 17);
+            this.resellCheckBox.TabIndex = 12;
+            this.resellCheckBox.Text = "After Fees";
+            this.resellCheckBox.UseVisualStyleBackColor = true;
+            this.resellCheckBox.CheckedChanged += new System.EventHandler(this.resellCheckBox_CheckedChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(862, 519);
+            this.Controls.Add(this.resellCheckBox);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.SKU);
@@ -121,6 +133,7 @@
             this.SKU.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -134,6 +147,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.CheckBox resellCheckBox;
     }
 }
 
