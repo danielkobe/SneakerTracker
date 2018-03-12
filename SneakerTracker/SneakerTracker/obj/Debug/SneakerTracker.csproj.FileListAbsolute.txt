@@ -17,3 +17,22 @@ C:\Users\danie\documents\visual studio 2015\Projects\SneakerTracker\SneakerTrack
 C:\Users\danie\documents\visual studio 2015\Projects\SneakerTracker\SneakerTracker\bin\Debug\Newtonsoft.Json.xml
 C:\Users\danie\documents\visual studio 2015\Projects\SneakerTracker\SneakerTracker\bin\Debug\SneakerEngine.dll
 C:\Users\danie\documents\visual studio 2015\Projects\SneakerTracker\SneakerTracker\bin\Debug\SneakerEngine.pdb
+C:\Users\danie\Desktop\Repos\SneakerTracker\SneakerTracker\SneakerTracker\bin\Debug\SneakerTracker.exe.config
+C:\Users\danie\Desktop\Repos\SneakerTracker\SneakerTracker\SneakerTracker\obj\Debug\SneakerTracker.exe
+C:\Users\danie\Desktop\Repos\SneakerTracker\SneakerTracker\SneakerTracker\obj\Debug\SneakerTracker.pdb
+C:\Users\danie\Desktop\Repos\SneakerTracker\SneakerTracker\SneakerTracker\bin\Debug\SneakerTracker.exe
+C:\Users\danie\Desktop\Repos\SneakerTracker\SneakerTracker\SneakerTracker\bin\Debug\SneakerTracker.pdb
+C:\Users\danie\Desktop\Repos\SneakerTracker\SneakerTracker\SneakerTracker\bin\Debug\HtmlAgilityPack.dll
+C:\Users\danie\Desktop\Repos\SneakerTracker\SneakerTracker\SneakerTracker\bin\Debug\Newtonsoft.Json.dll
+C:\Users\danie\Desktop\Repos\SneakerTracker\SneakerTracker\SneakerTracker\bin\Debug\SneakerEngine.dll
+C:\Users\danie\Desktop\Repos\SneakerTracker\SneakerTracker\SneakerTracker\bin\Debug\System.Json.dll
+C:\Users\danie\Desktop\Repos\SneakerTracker\SneakerTracker\SneakerTracker\bin\Debug\WebDriver.dll
+C:\Users\danie\Desktop\Repos\SneakerTracker\SneakerTracker\SneakerTracker\bin\Debug\SneakerEngine.pdb
+C:\Users\danie\Desktop\Repos\SneakerTracker\SneakerTracker\SneakerTracker\bin\Debug\HtmlAgilityPack.pdb
+C:\Users\danie\Desktop\Repos\SneakerTracker\SneakerTracker\SneakerTracker\bin\Debug\HtmlAgilityPack.xml
+C:\Users\danie\Desktop\Repos\SneakerTracker\SneakerTracker\SneakerTracker\bin\Debug\Newtonsoft.Json.xml
+C:\Users\danie\Desktop\Repos\SneakerTracker\SneakerTracker\SneakerTracker\bin\Debug\WebDriver.xml
+C:\Users\danie\Desktop\Repos\SneakerTracker\SneakerTracker\SneakerTracker\obj\Debug\SneakerTracker.csprojResolveAssemblyReference.cache
+C:\Users\danie\Desktop\Repos\SneakerTracker\SneakerTracker\SneakerTracker\obj\Debug\SneakerTracker.Form1.resources
+C:\Users\danie\Desktop\Repos\SneakerTracker\SneakerTracker\SneakerTracker\obj\Debug\SneakerTracker.Properties.Resources.resources
+C:\Users\danie\Desktop\Repos\SneakerTracker\SneakerTracker\SneakerTracker\obj\Debug\SneakerTracker.csproj.GenerateResource.Cache

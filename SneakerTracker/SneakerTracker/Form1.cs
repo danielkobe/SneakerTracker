@@ -28,51 +28,64 @@ namespace SneakerTracker
         ImageList ImageList = new ImageList();
         List<String> Names = new List<String>();
         List<String> SKUs = new List<String>();
+        List<int> jsonIndecies = new List<int>();
 
         int NumberOfOptions = 6;
-
         JsonValue json;
+
 
         public Form1()
         {
 
             InitializeComponent();
+            ImageList.ImageSize = new Size(140, 100);
+
 
         }
         async void Search(string query)
         {
 
             var httpClient = new HttpClient();
-            ImageList = new ImageList();
-            listView1.Items.Clear();
-            SKUs.Clear();
-            Names.Clear();
 
+            //setup post request
             httpClient.DefaultRequestHeaders.Add("x-algolia-agent", "Algolia for vanilla JavaScript 3.22.1");
             httpClient.DefaultRequestHeaders.Add("x-algolia-application-id", "XW7SBCT9V6");
             httpClient.DefaultRequestHeaders.Add("x-algolia-api-key", "6bfb5abee4dcd8cea8f0ca1ca085c2b3");
 
-            var postData = "{\"params\":\"query=" + query + "&facets=*&page=0\"}";
-
+            var postData = "{\"params\":\"query=" + query + "&facets=*&page=0&hitsPerPage=50\"}";
             var content = new StringContent(postData, Encoding.UTF8, "application/x-www-form-urlencoded");
-
             var response = await httpClient.PostAsync("https://xw7sbct9v6-dsn.algolia.net/1/indexes/products/query", content);
             response.EnsureSuccessStatusCode();
 
+            //get json response
             var responseJson = await response.Content.ReadAsStringAsync();
-
-            ImageList.ImageSize = new Size(140, 100);
-
             json = JsonObject.Parse(responseJson);
 
-            for (i = 0; i < NumberOfOptions; i++)
+            //clear current view
+            ClearView();
+
+            int temp = NumberOfOptions;
+            //load individual pictures to imagelist
+            for (i = 0; i < NumberOfOptions && i < json["hits"].Count; i++)
             {
-                LoadPicture2(i);
+                //string s = json["hits"][i]["product_category"];
+                if (json["hits"][i]["product_category"] == "sneakers")
+                {
+                    LoadPicture(i);
+                    jsonIndecies.Add(i);
+                }
+                else
+                {
+                    NumberOfOptions++;
+                }
             }
 
-            int count = 0;
+            //add imagelist to listview
             listView1.LargeImageList = ImageList;
-            for(i=0;i<NumberOfOptions && i<Names.Count;i++)
+
+            //set text attr for listview (name, sku)
+            int count = 0;
+            for (i = 0; i < NumberOfOptions && i < Names.Count; i++)
             {
                 ListViewItem lst = new ListViewItem();
                 lst.Text = Names[i] + " (" + SKUs[i] + ")";
@@ -80,43 +93,20 @@ namespace SneakerTracker
                 listView1.Items.Add(lst);
             }
 
+            NumberOfOptions = temp;
 
+
+        }
+
+        void ClearView()
+        {
+            listView1.Items.Clear();
+            SKUs.Clear();
+            Names.Clear();
+            ImageList.Dispose();
         }
 
         private void LoadPicture(int i)
-        {
-            PictureBox pic = Pictures[i];
-            String img;
-            try
-            {
-                img = json["hits"][i]["thumbnail_url"];
-            }
-
-            catch
-            {
-                img = "";
-            }
-
-            if (img != "")
-            {
-                pic.Load(img);
-                pic.SizeMode = PictureBoxSizeMode.Zoom;
-
-                //textBox2.Text = goat_json["hits"][i].ToString();
-                //textBox2.Text = json["hits"].ToString();
-
-            }
-
-            else
-            {
-                pic.Load("C:\\Users\\danie\\Documents\\Visual Studio 2015\\Projects\\SneakerTracker\\SneakerTracker\\bin\\notfound.png");
-                pic.SizeMode = PictureBoxSizeMode.Zoom;
-                // panel.Controls.Add(pic);
-                //textBox2.Text = json["hits"].ToString();
-            }
-        }
-
-        private void LoadPicture2(int i)
         {
             String url;
             try
@@ -127,15 +117,15 @@ namespace SneakerTracker
             catch
             {
                 url = "";
-                Bitmap DefaultImage = (Bitmap)Image.FromFile("..\\notfound.png");
+                Bitmap DefaultImage = Properties.Resources.NotFound;
                 ImageList.Images.Add(DefaultImage);
                 GatherProductInfo(i);
                 return;
             }
 
-            if(url == "")
+            if (url == "")
             {
-                Bitmap DefaultImage = (Bitmap)Image.FromFile("..\\notfound.png");
+                Bitmap DefaultImage = Properties.Resources.NotFound;
                 ImageList.Images.Add(DefaultImage);
                 GatherProductInfo(i);
                 return;
@@ -156,12 +146,12 @@ namespace SneakerTracker
             //catch bad url
             catch
             {
-                Bitmap DefaultImage = (Bitmap)Image.FromFile("..\\notfound.png");
+                Bitmap DefaultImage = Properties.Resources.NotFound;
                 ImageList.Images.Add(DefaultImage);
                 GatherProductInfo(i);
                 return;
-            }          
-            
+            }
+
         }
 
         private void GatherProductInfo(int i)
@@ -175,12 +165,37 @@ namespace SneakerTracker
         }
 
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void SearchBox_TextChanged(object sender, EventArgs e)
         {
-            Search(textBox1.Text);
+            Search(SearchBox.Text);
+        }
+
+        private void Select(object sender, EventArgs e)
+        {
+
+            if (listView1.SelectedItems.Count >= 1)
+            {
+                ListViewItem SelectedItem = this.listView1.SelectedItems[0];
+                if (SKUs[SelectedItem.Index] != "TBA")
+                {
+                    using (HttpClient client = new HttpClient())
+                    {
+                        client.DefaultRequestHeaders.Accept.Add(
+                            new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+
+
+                        var response = client.GetAsync("https://dtzwqfkqs0.execute-api.us-east-1.amazonaws.com/prod/scrapePrices?productId=" + SKUs[SelectedItem.Index]).Result;
+
+                        string content = response.Content.ReadAsStringAsync().Result;
+                        textBox2.Text = content;
+                    }
+                }
+            }
+
         }
 
     }
+
 
 
 
