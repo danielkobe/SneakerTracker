@@ -206,67 +206,68 @@ namespace SneakerTracker
                         //goat
                         if (sizes[i - 1]["goat"].Count>0)
                         {
-                            row.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn1"].Index].Value = (int) sizes[i - 1]["goat"]["lowestAsk"];
+                            row.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn1"].Index].Value = (double) sizes[i - 1]["goat"]["lowestAsk"];
                             if (this.resellCheckBox.Checked == true)
                             {
-                                var Base = (int) row.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn1"].Index].Value;
-                                Base = Base - ((int)(0.095 * Base) + 5);
-                                Base = (int) (0.971 * Base);
-                                row.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn1"].Index].Value = Base;
+                                var Base = (double) row.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn1"].Index].Value;
+                                Base = Base - ((double)(0.095 * Base) + 5);
+                                Base = (double) (0.971 * Base);
+                                row.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn1"].Index].Value = (double) Base;
+
                             }
                         }
                         else
                         {
-                            row.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn1"].Index].Value = 0;
+                            row.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn1"].Index].Value = 0.0;
                         }
 
                         //stockx
                         if (sizes[i - 1]["stockX"].Count > 0)
                         {
-                            row.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn2"].Index].Value = (int) sizes[i - 1]["stockX"]["lowestAsk"];
+                            row.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn2"].Index].Value = (double) sizes[i - 1]["stockX"]["lowestAsk"];
 
                             if (this.resellCheckBox.Checked == true)
                             {
-                                var Base = (int)row.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn2"].Index].Value;
-                                Base = (int) (Base * .88);
+                                var Base = (double)row.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn2"].Index].Value;
+                                Base = (double) (Base * .88);
                                 row.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn2"].Index].Value = Base;
                             }
                         }
                         else
                         {
-                            row.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn2"].Index].Value = 0;
+                            row.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn2"].Index].Value = (double) 0;
                         }
 
                         //flight club
                         if (sizes[i - 1]["flightClub"]["selling"].Count > 0)
                         {
-                            row.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn3"].Index].Value = (int)sizes[i - 1]["flightClub"]["selling"]["lowestAsk"];
+                            row.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn3"].Index].Value = (double)sizes[i - 1]["flightClub"]["selling"]["lowestAsk"];
                             if (this.resellCheckBox.Checked == true)
                             {
-                                var Base = (int)row.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn3"].Index].Value;
-                                Base = (int)(Base * .8);
+                                var Base = (double)row.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn3"].Index].Value;
+                                Base = (double)(Base * .8);
                                 row.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn3"].Index].Value = Base;
                             }
                         }
                         else
                         {
-                            row.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn3"].Index].Value = 0;
+                            row.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn3"].Index].Value = (double) 0;
                         }
 
                         //stadium goods
                         if (sizes[i - 1]["stadiumGoods"].Count > 0)
                         {
-                            row.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn4"].Index].Value = (int) sizes[i - 1]["stadiumGoods"]["lowestAsk"];
+                            row.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn4"].Index].Value = (double) sizes[i - 1]["stadiumGoods"]["lowestAsk"];
                             if (this.resellCheckBox.Checked == true)
                             {
-                                var Base = (int)row.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn4"].Index].Value;
-                                Base = (int)(Base * .8);
+                                var Base = (double)row.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn4"].Index].Value;
+                                Base = (double)(Base * .8);
                                 row.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn4"].Index].Value = Base;
                             }
                         }
                         else
                         {
-                            row.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn4"].Index].Value = 0;
+                            row.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn4"].Index].Value = (double) 0;
                         }
 
 
@@ -283,29 +284,50 @@ namespace SneakerTracker
             {
                 foreach(DataGridViewRow r in dataGridView1.Rows)
                 {
-                    var Base = (int)r.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn1"].Index].Value;
-                    Base = Base - ((int)(0.095 * Base) + 5);
-                    Base = (int)(0.971 * Base);
+                    var Base = (double)r.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn1"].Index].Value;
+                    Base = Base - ((double)(0.095 * Base) + 5);
+                    Base = (double)(0.971 * Base);
                     r.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn1"].Index].Value = Base;
 
-                    Base = (int)r.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn2"].Index].Value;
-                    Base = (int)(Base * .88);
+                    Base = (double)r.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn2"].Index].Value;
+                    Base = (double)(Base * .88);
                     r.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn2"].Index].Value = Base;
 
-                    Base = (int)r.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn3"].Index].Value;
-                    Base = (int)(Base * .8);
+                    Base = (double)r.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn3"].Index].Value;
+                    Base = (double)(Base * .8);
                     r.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn3"].Index].Value = Base;
 
 
-                    Base = (int)r.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn4"].Index].Value;
-                    Base = (int)(Base * .8);
+                    Base = (double)r.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn4"].Index].Value;
+                    Base = (double)(Base * .8);
                     r.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn4"].Index].Value = Base;
                 }
             }
 
             else
             {
-                Select(this, new EventArgs());
+                //Select(this, new EventArgs());
+                foreach (DataGridViewRow r in dataGridView1.Rows)
+                {
+                    var Base = (double)r.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn1"].Index].Value;
+                    Base = (double)((1/0.971) * Base);
+                    //Base = Base + ((double)(0.095 * Base) + 5);
+                    Base = ((Base + 5.0) / .905);
+                    r.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn1"].Index].Value = Base;
+
+                    Base = (double)r.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn2"].Index].Value;
+                    Base = (double)(Base * (1/.88));
+                    r.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn2"].Index].Value = Base;
+
+                    Base = (double)r.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn3"].Index].Value;
+                    Base = (double)(Base * (1/0.8));
+                    r.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn3"].Index].Value = Base;
+
+
+                    Base = (double)r.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn4"].Index].Value;
+                    Base = (double)(Base * (1 / 0.8));
+                    r.Cells[dataGridView1.Columns["dataGridViewTextBoxColumn4"].Index].Value = Base;
+                }
             }
         }
     }

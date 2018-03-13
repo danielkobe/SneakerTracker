@@ -1,0 +1,5 @@
+C:\Users\danie\Desktop\Repos\SneakerTracker\SneakerTracker\SneakerEngine\bin\Release\SneakerEngine.dll
+C:\Users\danie\Desktop\Repos\SneakerTracker\SneakerTracker\SneakerEngine\bin\Release\SneakerEngine.pdb
+C:\Users\danie\Desktop\Repos\SneakerTracker\SneakerTracker\SneakerEngine\obj\Release\SneakerEngine.csprojResolveAssemblyReference.cache
+C:\Users\danie\Desktop\Repos\SneakerTracker\SneakerTracker\SneakerEngine\obj\Release\SneakerEngine.dll
+C:\Users\danie\Desktop\Repos\SneakerTracker\SneakerTracker\SneakerEngine\obj\Release\SneakerEngine.pdb
