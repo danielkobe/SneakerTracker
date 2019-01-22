@@ -5,6 +5,9 @@ C:\Users\danie\documents\visual studio 2015\Projects\SneakerTracker\SneakerEngin
 C:\Users\danie\documents\visual studio 2015\Projects\SneakerTracker\SneakerEngine\obj\Debug\SneakerEngine.pdb
 C:\Users\danie\Desktop\Repos\SneakerTracker\SneakerTracker\SneakerEngine\bin\Debug\SneakerEngine.dll
 C:\Users\danie\Desktop\Repos\SneakerTracker\SneakerTracker\SneakerEngine\bin\Debug\SneakerEngine.pdb
+C:\Users\danie\Desktop\Repos\SneakerTracker\SneakerTracker\SneakerEngine\bin\Debug\System.Json.dll
 C:\Users\danie\Desktop\Repos\SneakerTracker\SneakerTracker\SneakerEngine\obj\Debug\SneakerEngine.csprojResolveAssemblyReference.cache
 C:\Users\danie\Desktop\Repos\SneakerTracker\SneakerTracker\SneakerEngine\obj\Debug\SneakerEngine.dll
 C:\Users\danie\Desktop\Repos\SneakerTracker\SneakerTracker\SneakerEngine\obj\Debug\SneakerEngine.pdb
+C:\Users\danie\Desktop\Repos\SneakerTracker\SneakerTracker\SneakerEngine\obj\Debug\SneakerEngine.Properties.Resources.resources
+C:\Users\danie\Desktop\Repos\SneakerTracker\SneakerTracker\SneakerEngine\obj\Debug\SneakerEngine.csproj.GenerateResource.Cache
